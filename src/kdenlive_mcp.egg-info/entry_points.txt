@@ -1,0 +1,2 @@
+[console_scripts]
+kdenlive-mcp = kdenlive_mcp.server:main

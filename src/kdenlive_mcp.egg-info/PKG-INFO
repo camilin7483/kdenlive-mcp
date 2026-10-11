@@ -1,0 +1,68 @@
+Metadata-Version: 2.4
+Name: kdenlive-mcp
+Version: 0.1.0
+Summary: MCP server + pipeline de edicion automatica para Kdenlive/MLT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: mcp>=1.0
+
+# kdenlive-mcp
+
+Pipeline de edición automática de vídeo sobre proyectos Kdenlive/MLT
+(`.kdenlive` = XML MLT) expuesto como servidor MCP. Solo stdlib +
+`ffmpeg`/`ffprobe`/`melt` del sistema.
+
+## Requisitos (Arch Linux)
+
+```bash
+sudo pacman -S --needed ffmpeg mlt python
+```
+
+## Instalación
+
+```bash
+cd /home/cam/Projects/kdenlive-mcp
+python -m venv .venv && source .venv/bin/activate
+pip install -e .
+```
+
+## Arrancar el servidor
+
+```bash
+kdenlive-mcp   # equivale a: python -m kdenlive_mcp.server
+```
+
+(Requiere el módulo `kdenlive_mcp.server`, provisto por el agente de servidor.)
+
+## Ejemplo: edición YouTube en una llamada
+
+```python
+from kdenlive_mcp.edit_video import edit_video
+
+result = edit_video(
+    source_folder="/home/cam/Videos",
+    output="output/youtube_final.mp4",
+    target_duration=60.0,
+)
+print(result["ok"], result["output"], result["duration"])
+```
+
+Sin fuentes no falla: genera material demo (`media/demo_*.mp4` con
+`testsrc2` + `sine`) y edita sobre él.
+
+## Dónde sale el vídeo
+
+- Proyecto: `projects/<nombre>.kdenlive`
+- Render: la ruta `output` pedida (relativa = bajo el proyecto).
+- El dict retornado trae `project_path`, `output`, `duration`, `steps` y `warnings`.
+
+## Limitaciones honestas
+
+- Sin GUI de Kdenlive ni modo headless: el render se hace vía `melt`
+  con perfil `MP4-H264/AAC`; si `melt` falta, el render falla con mensaje.
+- `duck_music` es atenuación fija del track de música, no sidechain real
+  con compresor.
+- `find_silence` solo detecta tramos (no corta); `remove_silence=True`
+  informa sin modificar el timeline.
+- Efectos limitados a los soportados por `effects_tools`
+  (`blur`, `sharpen`, `transform`, `color`, `brightness`, `volume`).

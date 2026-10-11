@@ -1,0 +1,9 @@
+__pycache__/
+.pytest_cache/
+voices/*.onnx
+voices/*.onnx.json
+voices/cache/
+media/*.mp4
+media/*.mp3
+output/*.mp4
+projects/*.kdenlive

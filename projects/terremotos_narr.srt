@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:01,300
+¿Qué es un terremoto?
+
+2
+00:00:01,733 --> 00:00:08,100
+Es la liberación repentina de energía acumulada en el interior de la Tierra, que genera ondas sísmicas.
+
+3
+00:00:08,533 --> 00:00:14,400
+Ocurre cuando las placas tectónicas que forman la corteza se desplazan, chocan o se deslizan entre sí.
+
+4
+00:00:14,833 --> 00:00:19,867
+La magnitud se mide con la escala de momento, que reemplazó a la escala de Richter.
+
+5
+00:00:20,300 --> 00:00:24,433
+Un sismo de magnitud siete libera una energía devastadora.
+
+6
+00:00:24,867 --> 00:00:29,700
+El Cinturón de Fuego del Pacífico concentra la mayoría de los terremotos del planeta.
+
+7
+00:00:30,133 --> 00:00:34,733
+Durante un terremoto, protégete: agáchate, cúbrete y sujétate.
+
+8
+00:00:35,167 --> 00:00:39,700
+Después del sismo, revisa fugas de gas y aléjate de edificios dañados.
+
+9
+00:00:40,133 --> 00:00:41,833
+La prevención salva vidas.
